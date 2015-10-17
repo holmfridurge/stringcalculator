@@ -2,6 +2,8 @@ package is.ru.stringcalculator;
 
 public class Calculator {
 
+	//to test commit
+
 	public static int add(String text){
 		if(text.equals("")){
 			return 0;
