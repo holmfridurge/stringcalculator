@@ -22,7 +22,7 @@ public class Calculator {
 	private static String[] splitNumbers(String numbers){
 	    return numbers.split(",");
 	}
-      
+      //shelltest
     private static int sum(String[] numbers){
  	    int total = 0;
         for(String number : numbers){
@@ -30,7 +30,4 @@ public class Calculator {
 		}
 		return total;
     }
-
-
-
 }
