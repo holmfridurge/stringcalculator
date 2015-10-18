@@ -41,12 +41,19 @@ public class CalculatorTest {
 	
 	@Test
 	public void testMultipleNewLines(){
-		assertEquals(10, Calculator.add("1,2\n3\n4"));
+		assertEquals(5, Calculator.add("1\n1\n2,1"));
 	}
 	
 	@Test
 	public void testDifferentDelimiter(){
 		assertEquals(3, Calculator.add("//;\n1;2"));
 	}
+	
+	
+	
+	/*@Test
+	public void testIfNegative() {
+		assertEquals(0, Calculator.add("-1,2"));
+	}*/
 
 }
