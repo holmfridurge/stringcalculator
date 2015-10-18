@@ -3,6 +3,7 @@ package is.ru.stringcalculator;
 public class Calculator {
 
 	public static String delimiter = ",";
+	public static String newLineDelimiter = "\n";
 	public static int add(String text){
 		if(text.equals("")){
 			return 0;
@@ -16,7 +17,7 @@ public class Calculator {
 	}
 	
 	private static String[] splitNumbers(String numbers){
-	String allDelimiters = "["+delimiter+"\n"+"]";
+	String allDelimiters = "["+delimiter+newLineDelimiter+"]";
 		return numbers.split(allDelimiters);
 	}
 	 
