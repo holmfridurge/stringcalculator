@@ -7,9 +7,6 @@ public class Calculator {
 		if(text.equals("")){
 			return 0;
 		}
-		else if(text.contains(delimiter)){
-			return sum(splitNumbers(text));
-		}
 		else
 			return sum(splitNumbers(text));
 	}
