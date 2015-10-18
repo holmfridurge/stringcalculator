@@ -44,11 +44,10 @@ public class CalculatorTest {
 		assertEquals(3, Calculator.add("//;\n1;2"));
 	}
 	
-	/*@Test
-	(expected = IllegalArgumentException.class)
-	public void testIfNegative() {
-		assertEquals("Negatives not allowed: -1", Calculator.add("-1,2"));
-	}*/
+	@Test
+	public void testIgnoreOverThousand() {
+		assertEquals(2, Calculator.add("1001,2"));
+	}
 	
 	@Test
 	public void testIfNegative() {

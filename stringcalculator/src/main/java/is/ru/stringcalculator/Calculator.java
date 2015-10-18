@@ -2,7 +2,7 @@ package is.ru.stringcalculator;
 
 public class Calculator {
 	
-	public static String regexNumber = "[0-9]?[0-9]?[0-9]";
+	public static String regexNumber = "^(?:1000|[1-9]?[0-9]?[0-9])$";
 	//public static String regexNegative = "^(\-?|[1-9]?[0-9]?[0-9])$";
 	public static String newLineDelimiter = "\n";
 	public static int add(String text){
@@ -22,8 +22,8 @@ public class Calculator {
 		return Integer.parseInt(number);
 	}
 	
-	private static boolean isNumber(String numbers) {
-		//checks if the string only contains decimal numbers
+	private static boolean isNumberUnderThousand(String numbers) {
+		//checks if the string only contains decimal numbers under thousand
 		return numbers.matches(regexNumber);
 	}
 	
@@ -41,7 +41,7 @@ public class Calculator {
         for(String number : numbers){
 			if(isNegative(number)) {
 				throw new IllegalArgumentException("Negatives not allowed: "+number);
-			} else if(isNumber(number)) {
+			} else if(isNumberUnderThousand(number)) {
 				total += toInt(number);
 			}
 		}
