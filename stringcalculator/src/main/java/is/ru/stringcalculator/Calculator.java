@@ -2,6 +2,7 @@ package is.ru.stringcalculator;
 
 public class Calculator {
 	
+	public static String regexNumber = "[0-9]?[0-9]?[0-9]";
 	public static String newLineDelimiter = "\n";
 	public static int add(String text){
 		String delimiter = ",";
@@ -22,7 +23,7 @@ public class Calculator {
 	
 	private static boolean isNumber(String numbers) {
 		//checks if the string only contains decimal numbers
-	return numbers.matches("[0-9]?[0-9]?[0-9]");
+	return numbers.matches(regexNumber);
 	}
 	
 	private static String[] splitNumbers(String numbers, String newDelimiter){
