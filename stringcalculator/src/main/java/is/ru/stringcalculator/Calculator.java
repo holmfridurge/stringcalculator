@@ -3,9 +3,10 @@ package is.ru.stringcalculator;
 public class Calculator {
 	
 	public static String regexNumber = "[0-9]?[0-9]?[0-9]";
+	//public static String regexNegative = "^(\-?|[1-9]?[0-9]?[0-9])$";
 	public static String newLineDelimiter = "\n";
 	public static int add(String text){
-		String delimiter = ",";
+		String delimiter = ","; //default delimiter
 		if(text.startsWith("//")) {
 			char temp = text.charAt(2);
 			String temp2 = String.valueOf(temp);
@@ -23,7 +24,11 @@ public class Calculator {
 	
 	private static boolean isNumber(String numbers) {
 		//checks if the string only contains decimal numbers
-	return numbers.matches(regexNumber);
+		return numbers.matches(regexNumber);
+	}
+	
+	private static boolean isNegative(String numbers) {
+		return numbers.contains("-");
 	}
 	
 	private static String[] splitNumbers(String numbers, String newDelimiter){
@@ -32,9 +37,11 @@ public class Calculator {
 	}
 	 
     private static int sum(String[] numbers){
- 	    int total = 0;
+		int total = 0;
         for(String number : numbers){
-			if(isNumber(number)) {
+			if(isNegative(number)) {
+				throw new IllegalArgumentException("Negatives not allowed: "+number);
+			} else if(isNumber(number)) {
 				total += toInt(number);
 			}
 		}
